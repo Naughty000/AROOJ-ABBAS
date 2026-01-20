@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1006/1006363.png">
 </head>
 <body>
-    
     <div class="loading-screen" id="loadingScreen">
         <div class="loader">
             <div class="dot"></div>
@@ -20,7 +18,6 @@
         <p>Loading Portfolio...</p>
     </div>
 
-  
     <nav class="navbar">
         <div class="container">
             <a href="#" class="logo">
@@ -37,8 +34,8 @@
                 <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
                 <li><a href="#projects" class="nav-link"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="#cv" class="nav-link"><i class="fas fa-file-download"></i> CV</a></li>
                 <li><a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</a></li>
-                <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
                 <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li>
                     <button class="theme-toggle" id="themeToggle">
@@ -49,7 +46,6 @@
         </div>
     </nav>
 
-    
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -58,18 +54,14 @@
                     <h1 class="hero-title">Arooj <span class="highlight">Abbas</span></h1>
                     <h2 class="hero-subtitle">Frontend Developer | React.js Specialist</h2>
                     <p class="hero-description">
-                        BSCS 6th Semester Student @ Punjab University | 6+ Deployed Projects | 
-                        Passionate about creating interactive web experiences
+                        BSCS 6th Semester Student @ Punjab University | 6+ Deployed Projects
                     </p>
                     
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">
                             <i class="fas fa-eye"></i> View Projects
                         </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-paper-plane"></i> Hire Me
-                        </a>
-                        <a href="Arooj-Abbas-CV.pdf" download class="btn btn-outline" id="downloadCV">
+                        <a href="#cv" class="btn btn-secondary">
                             <i class="fas fa-download"></i> Download CV
                         </a>
                     </div>
@@ -92,8 +84,7 @@
 
                 <div class="hero-image">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                             alt="Arooj Abbas" class="profile-img">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Arooj Abbas" class="profile-img">
                         <div class="floating-tech">
                             <span class="tech-icon react"><i class="fab fa-react"></i></span>
                             <span class="tech-icon js"><i class="fab fa-js"></i></span>
@@ -110,7 +101,6 @@
         </div>
     </section>
 
-    
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
@@ -208,7 +198,6 @@
         </div>
     </section>
 
-    
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-header">
@@ -224,12 +213,62 @@
             </div>
 
             <div class="projects-grid" id="projectsGrid">
-                <!-- Projects will be loaded dynamically via JavaScript -->
             </div>
         </div>
     </section>
 
-    
+    <section class="cv-download" id="cv">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Download My <span>CV</span></h2>
+                <p class="section-subtitle">Get my complete professional profile</p>
+            </div>
+            
+            <div class="cv-card">
+                <div class="cv-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h3>Arooj Abbas - Professional CV</h3>
+                <p class="cv-description">
+                    Frontend Developer | React.js Specialist | BSCS Student @ Punjab University
+                </p>
+                
+                <div class="cv-details">
+                    <div class="cv-detail">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Updated: January 2024</span>
+                    </div>
+                    <div class="cv-detail">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Format: PDF</span>
+                    </div>
+                    <div class="cv-detail">
+                        <i class="fas fa-weight"></i>
+                        <span>Size: ~150KB</span>
+                    </div>
+                    <div class="cv-detail">
+                        <i class="fas fa-code"></i>
+                        <span>6+ Projects Included</span>
+                    </div>
+                </div>
+                
+                <div class="cv-buttons">
+                    <a href="Arooj-Abbas-CV.pdf" download class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download CV (PDF)
+                    </a>
+                    <a href="Arooj-Abbas-CV.pdf" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> Preview CV
+                    </a>
+                </div>
+                
+                <p class="cv-note">
+                    <i class="fas fa-info-circle"></i>
+                    Includes contact info, projects, skills, education, and experience
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section class="skills" id="skills">
         <div class="container">
             <div class="section-header">
@@ -237,64 +276,11 @@
                 <p class="section-subtitle">Technologies I work with</p>
             </div>
 
-            <div class="skills-container">
-                <!-- Skills will be loaded dynamically via JavaScript -->
+            <div class="skills-container" id="skillsContainer">
             </div>
         </div>
     </section>
 
-    <section class="education" id="education">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Education & <span>Experience</span></h2>
-                <p class="section-subtitle">My academic and professional journey</p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2022 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Bachelor of Science in Computer Science</h3>
-                        <h4>Punjab University, Lahore</h4>
-                        <p>6th Semester | CGPA: 3.6/4.0</p>
-                        <ul>
-                            <li>Relevant Courses: Data Structures, Algorithms, Web Development</li>
-                            <li>Active member of Computer Science Society</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2025 - Jul 2025</div>
-                    <div class="timeline-content">
-                        <h3>Teaching Assistant - Computer Organization</h3>
-                        <h4>Punjab University</h4>
-                        <p>Assisted 50+ students in Assembly language programming</p>
-                        <ul>
-                            <li>Conducted weekly lab sessions on MIPS/ARM architecture</li>
-                            <li>Graded assignments and provided code optimization feedback</li>
-                            <li>Created supplementary learning materials</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">2021 - 2022</div>
-                    <div class="timeline-content">
-                        <h3>F.Sc. Pre-Engineering</h3>
-                        <h4>Govt. Girls College, Muridke</h4>
-                        <p>Grade: 950/1100</p>
-                        <ul>
-                            <li>Major Subjects: Mathematics, Physics, Chemistry</li>
-                            <li>Active in science club and competitions</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
@@ -336,6 +322,17 @@
                             <a href="https://maps.google.com/?q=Lahore" target="_blank">View on Map</a>
                         </div>
                     </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Portfolio</h3>
+                            <p>naughty000.github.io</p>
+                            <a href="https://naughty000.github.io" target="_blank">Visit Site</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="contact-form">
@@ -362,7 +359,6 @@
         </div>
     </section>
 
-    
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -383,15 +379,13 @@
                     <a href="mailto:kambohabbas04@gmail.com" class="social-link">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="https://twitter.com" target="_blank" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
                 </div>
 
                 <div class="quick-links">
                     <a href="#home">Home</a>
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
+                    <a href="#cv">CV</a>
                     <a href="#contact">Contact</a>
                 </div>
 
@@ -406,14 +400,11 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body" id="modalBody">
-                
-            </div>
-        </div>
+    <div class="cv-float-button">
+        <a href="#cv" class="float-cv-btn">
+            <i class="fas fa-file-download"></i>
+            <span>Get CV</span>
+        </a>
     </div>
 
     <script src="script.js"></script>
