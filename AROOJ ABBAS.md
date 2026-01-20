@@ -1,6 +1,6 @@
 # 🚀 Arooj Abbas - Professional Portfolio
 
-🌐 **Live Portfolio:** https://naughty000.github.io
+🌐 **Live Portfolio:** https://github.com/Naughty000/AROOJ-ABBAS
 
 ## 👩‍💻 About This Portfolio
 
