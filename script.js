@@ -1,4 +1,3 @@
-
 const portfolioData = {
     projects: [
         {
@@ -132,56 +131,46 @@ const portfolioData = {
     }
 };
 
-
 const loadingScreen = document.getElementById('loadingScreen');
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 const navLinksAll = document.querySelectorAll('.nav-link');
 const themeToggle = document.getElementById('themeToggle');
 const projectsGrid = document.getElementById('projectsGrid');
-const skillsContainer = document.querySelector('.skills-container');
+const skillsContainer = document.getElementById('skillsContainer');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const backToTop = document.getElementById('backToTop');
 const contactForm = document.getElementById('contactForm');
-const projectModal = document.getElementById('projectModal');
-const closeModal = document.querySelector('.close-modal');
-const modalBody = document.getElementById('modalBody');
-const downloadCV = document.getElementById('downloadCV');
 
 window.addEventListener('load', () => {
     setTimeout(() => {
         loadingScreen.classList.add('hidden');
         
-       
         document.querySelectorAll('.progress-fill').forEach(bar => {
             const width = bar.getAttribute('data-width');
             bar.style.width = `${width}%`;
         });
         
-        
         loadProjects();
         loadSkills();
+        initCVDownload();
     }, 1500);
 });
-
 
 navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     navToggle.classList.toggle('active');
 });
 
-
 navLinksAll.forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         navToggle.classList.remove('active');
         
-        // Update active link
         navLinksAll.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
     });
 });
-
 
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
@@ -196,7 +185,6 @@ themeToggle.addEventListener('click', () => {
         localStorage.setItem('theme', 'light');
     }
 });
-
 
 if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-theme');
@@ -236,197 +224,27 @@ function loadProjects(filter = 'all') {
                     <a href="${project.live}" target="_blank" class="project-link">
                         <i class="fas fa-external-link-alt"></i> Live Demo
                     </a>
-                    <a href="#" class="project-link view-details" data-id="${project.id}">
-                        <i class="fas fa-info-circle"></i> Details
-                    </a>
                 </div>
             </div>
         `;
         
         projectsGrid.appendChild(projectCard);
         
-       
         setTimeout(() => {
             projectCard.classList.add('visible');
         }, 100);
     });
-    
-    // Add event listeners to view details buttons
-    document.querySelectorAll('.view-details').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const projectId = parseInt(btn.getAttribute('data-id'));
-            openProjectModal(projectId);
-        });
-    });
 }
-
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Update active button
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         
-        // Filter projects
         const filter = btn.getAttribute('data-filter');
         loadProjects(filter);
     });
 });
-
-
-function openProjectModal(projectId) {
-    const project = portfolioData.projects.find(p => p.id === projectId);
-    
-    if (project) {
-        modalBody.innerHTML = `
-            <div class="modal-project">
-                <div class="modal-header">
-                    <h2>${project.title}</h2>
-                    <div class="modal-tags">
-                        ${project.tech.map(tech => `<span class="modal-tag">${tech}</span>`).join('')}
-                    </div>
-                </div>
-                
-                <div class="modal-image">
-                    <img src="${project.image}" alt="${project.title}">
-                </div>
-                
-                <div class="modal-content">
-                    <h3>Project Overview</h3>
-                    <p>${project.description}</p>
-                    
-                    <h3>Key Features</h3>
-                    <ul class="modal-features">
-                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-                    </ul>
-                    
-                    <h3>Technologies Used</h3>
-                    <div class="modal-tech">
-                        ${project.tech.map(tech => `
-                            <div class="tech-item">
-                                <i class="fas fa-check"></i>
-                                <span>${tech}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                    
-                    <div class="modal-links">
-                        <a href="${project.github}" target="_blank" class="btn btn-primary">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                        <a href="${project.live}" target="_blank" class="btn btn-secondary">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `;
-   
-        const style = document.createElement('style');
-        style.textContent = `
-            .modal-project {
-                padding: 20px;
-            }
-            .modal-header {
-                margin-bottom: 30px;
-            }
-            .modal-header h2 {
-                font-size: 2rem;
-                margin-bottom: 10px;
-                color: var(--dark);
-            }
-            .dark-theme .modal-header h2 {
-                color: var(--light);
-            }
-            .modal-tags {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            .modal-tag {
-                padding: 5px 15px;
-                background: rgba(124, 58, 237, 0.1);
-                color: var(--primary);
-                border-radius: 20px;
-                font-size: 0.9rem;
-                font-weight: 500;
-            }
-            .modal-image {
-                width: 100%;
-                height: 300px;
-                border-radius: var(--border-radius);
-                overflow: hidden;
-                margin-bottom: 30px;
-            }
-            .modal-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-            .modal-content h3 {
-                margin: 25px 0 15px;
-                color: var(--dark);
-            }
-            .dark-theme .modal-content h3 {
-                color: var(--light);
-            }
-            .modal-features {
-                padding-left: 20px;
-                margin-bottom: 20px;
-                color: var(--gray);
-            }
-            .modal-features li {
-                margin-bottom: 8px;
-            }
-            .modal-tech {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 15px;
-                margin-bottom: 30px;
-            }
-            .tech-item {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                padding: 10px 15px;
-                background: rgba(124, 58, 237, 0.1);
-                border-radius: var(--border-radius);
-                color: var(--primary);
-            }
-            .modal-links {
-                display: flex;
-                gap: 15px;
-                margin-top: 30px;
-            }
-        `;
-        
-        
-        const existingStyle = document.querySelector('#modal-styles');
-        if (existingStyle) existingStyle.remove();
-        
-        style.id = 'modal-styles';
-        document.head.appendChild(style);
-        
-        projectModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-
-closeModal.addEventListener('click', () => {
-    projectModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-});
-
-// Close modal when clicking outside
-projectModal.addEventListener('click', (e) => {
-    if (e.target === projectModal) {
-        projectModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-});
-
 
 function loadSkills() {
     skillsContainer.innerHTML = '';
@@ -456,43 +274,22 @@ function loadSkills() {
                     <div class="skill-item">
                         <i class="${skill.icon}"></i>
                         <span>${skill.name}</span>
-                        <span class="skill-level">${skill.level}%</span>
                     </div>
                 `).join('')}
             </div>
         `;
         
         skillsContainer.appendChild(categoryDiv);
-        
-        // Add skill level styles
-        const style = document.createElement('style');
-        style.textContent = `
-            .skill-level {
-                margin-left: auto;
-                font-size: 0.8rem;
-                opacity: 0.8;
-                font-weight: 600;
-                color: var(--primary);
-            }
-        `;
-        
-        if (!document.querySelector('#skill-styles')) {
-            style.id = 'skill-styles';
-            document.head.appendChild(style);
-        }
     });
 }
 
-
 function handleScrollAnimations() {
-    
     if (window.scrollY > 500) {
         backToTop.classList.add('visible');
     } else {
         backToTop.classList.remove('visible');
     }
     
-   
     const sections = document.querySelectorAll('section');
     let current = '';
     
@@ -511,7 +308,6 @@ function handleScrollAnimations() {
         }
     });
     
-    
     const animateElements = document.querySelectorAll('.project-card');
     animateElements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
@@ -525,7 +321,6 @@ function handleScrollAnimations() {
 
 window.addEventListener('scroll', handleScrollAnimations);
 
-
 backToTop.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
@@ -533,15 +328,9 @@ backToTop.addEventListener('click', () => {
     });
 });
 
-
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
         
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
@@ -550,7 +339,6 @@ if (contactForm) {
         submitBtn.disabled = true;
         
         setTimeout(() => {
-            
             const successMsg = document.createElement('div');
             successMsg.className = 'success-message';
             successMsg.innerHTML = `
@@ -565,20 +353,20 @@ if (contactForm) {
                     text-align: center;
                     padding: 30px;
                     background: rgba(16, 185, 129, 0.1);
-                    border-radius: var(--border-radius);
+                    border-radius: 12px;
                     margin-top: 20px;
                 }
                 .success-message i {
                     font-size: 3rem;
-                    color: var(--success);
+                    color: #10B981;
                     margin-bottom: 20px;
                 }
                 .success-message h3 {
-                    color: var(--success);
+                    color: #10B981;
                     margin-bottom: 10px;
                 }
                 .success-message p {
-                    color: var(--gray);
+                    color: #6B7280;
                 }
             `;
             
@@ -593,7 +381,6 @@ if (contactForm) {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
             
-            
             setTimeout(() => {
                 successMsg.remove();
             }, 5000);
@@ -601,197 +388,90 @@ if (contactForm) {
     });
 }
 
-
-if (downloadCV) {
-    downloadCV.addEventListener('click', (e) => {
-        
-        if (!document.querySelector('a[href*="Arooj-Abbas-CV.pdf"]')) {
-            e.preventDefault();
+function initCVDownload() {
+    const cvLinks = document.querySelectorAll('a[href*="Arooj-Abbas-CV"]');
+    
+    cvLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            console.log('CV downloaded: Arooj-Abbas-CV.pdf', new Date());
             
+            showDownloadNotification();
             
-            const cvContent = `
-                AROOJ ABBAS
-                Frontend Developer | React.js Specialist
-                
-                CONTACT
-                Email: kambohabbas04@gmail.com
-                Phone: +92 327 4266152
-                GitHub: github.com/Naughty000
-                LinkedIn: linkedin.com/in/arooj-abbas-80110a3a7
-                Portfolio: naughty000.github.io
-                
-                SUMMARY
-                BSCS 6th Semester student at Punjab University with hands-on experience 
-                in React.js frontend development. Built 6+ deployed web applications 
-                focusing on user experience and responsive design.
-                
-                SKILLS
-                • Frontend: React.js, JavaScript, HTML5, CSS3, Tailwind CSS
-                • Backend: Node.js, MongoDB, SQL, Python
-                • Tools: Git, GitHub, VS Code, REST APIs
-                
-                PROJECTS
-                1. Personal Finance Tracker - React.js, Chart.js, Tailwind CSS
-                2. Health Tracking App - JavaScript, HTML5, CSS3
-                3. Cat Breed Information - JavaScript, REST API
-                4. Phone Number Validator - JavaScript, Regex
-                5. Restaurant Menu System - JavaScript, Local Storage
-                6. Nutrition Facts Generator - JavaScript, Chart.js
-                
-                EDUCATION
-                • BSCS Computer Science - Punjab University (2022-Present)
-                • F.Sc. Pre-Engineering - Govt. Girls College, Muridke
-                
-                EXPERIENCE
-                • Teaching Assistant - Computer Organization, Punjab University
-                • Computer Science Teacher - Inspire Education School System
-                
-                CERTIFICATIONS
-                • Web Design & Development - PNY Trainings
-                • Frontend Development - freeCodeCamp
-                • Python Programming - Punjab University
-            `;
-            
-            const blob = new Blob([cvContent], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Arooj-Abbas-CV.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            // Show download notification
-            const notification = document.createElement('div');
-            notification.className = 'download-notification';
-            notification.innerHTML = `
-                <i class="fas fa-check-circle"></i>
-                <span>CV downloaded successfully!</span>
-            `;
-            
-            
-            const style = document.createElement('style');
-            style.textContent = `
-                .download-notification {
-                    position: fixed;
-                    bottom: 30px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: var(--success);
-                    color: white;
-                    padding: 15px 25px;
-                    border-radius: var(--border-radius);
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    box-shadow: var(--shadow);
-                    z-index: 1000;
-                    animation: slideUp 0.3s ease;
-                }
-                @keyframes slideUp {
-                    from { transform: translate(-50%, 100px); opacity: 0; }
-                    to { transform: translate(-50%, 0); opacity: 1; }
-                }
-                .download-notification i {
-                    font-size: 1.2rem;
-                }
-            `;
-            
-            if (!document.querySelector('#notification-styles')) {
-                style.id = 'notification-styles';
-                document.head.appendChild(style);
+            if (this.getAttribute('target') === '_blank') {
+                e.preventDefault();
+                window.open(this.href, '_blank');
             }
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
-        }
+        });
     });
 }
 
-function initTypingAnimation() {
-    const heroTitle = document.querySelector('.hero-title .highlight');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
-        let i = 0;
-        function typeWriter() {
-            if (i < originalText.length) {
-                heroTitle.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        
-    }
-}
-
-window.addEventListener('load', initTypingAnimation);
-
-function createParticles() {
-    const heroSection = document.querySelector('.hero');
-    if (!heroSection) return;
-    
-    const particlesCount = 20;
-    
-    for (let i = 0; i < particlesCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        
-        const size = Math.random() * 10 + 5;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 5;
-        
-     
-        particle.style.cssText = `
-            position: absolute;
-            width: ${size}px;
-            height: ${size}px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            left: ${posX}%;
-            top: ${posY}%;
-            animation: float ${duration}s infinite ease-in-out ${delay}s;
-        `;
-        
-        heroSection.appendChild(particle);
-    }
-    
-    
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 0.1;
-            }
-        }
+function showDownloadNotification() {
+    const notification = document.createElement('div');
+    notification.className = 'download-notification';
+    notification.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        <div>
+            <h4>CV Downloaded!</h4>
+            <p>Thank you for your interest. Check your downloads folder.</p>
+        </div>
     `;
     
-    if (!document.querySelector('#particle-styles')) {
-        style.id = 'particle-styles';
+    if (!document.querySelector('#notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+            .download-notification {
+                position: fixed;
+                bottom: 100px;
+                right: 30px;
+                background: #10B981;
+                color: white;
+                padding: 20px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                animation: slideInRight 0.3s ease;
+                max-width: 350px;
+            }
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            .download-notification i {
+                font-size: 2rem;
+            }
+            .download-notification h4 {
+                margin-bottom: 5px;
+            }
+            .download-notification p {
+                font-size: 0.9rem;
+                opacity: 0.9;
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
         document.head.appendChild(style);
     }
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 5000);
 }
 
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    
     handleScrollAnimations();
-    
     
     const buttons = document.querySelectorAll('.btn, .project-link, .social-link, .filter-btn');
     buttons.forEach(btn => {
@@ -804,7 +484,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-  
     console.log('%c🚀 Welcome to Arooj Abbas Portfolio!', 'color: #7C3AED; font-size: 18px; font-weight: bold;');
     console.log('%c👨‍💻 Frontend Developer | React.js Specialist', 'color: #2563EB; font-size: 14px;');
     console.log('%c📧 Contact: kambohabbas04@gmail.com', 'color: #10B981; font-size: 14px;');
