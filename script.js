@@ -1,6 +1,22 @@
 const portfolioData = {
     projects: [
         {
+            id: 0,
+            title: "ARIA — AI Research & Intelligent Assistant",
+            description: "A multi-agent, agentic AI desktop assistant built around a LangGraph-based tool router. Own the backend architecture for the Gmail Email Agent, WhatsApp Messaging Agent, Document Summarizer, and Browser Automation modules. Final Year Project, 4-person team.",
+            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            tags: ["ai", "fullstack"],
+            tech: ["LangGraph", "LangChain", "Groq", "Python", "ChromaDB", "Playwright"],
+            status: "In Development",
+            features: [
+                "LangGraph-based multi-agent tool router",
+                "Gmail Email Agent for automated reading, drafting, and triage",
+                "WhatsApp Messaging Agent for automated message handling",
+                "Document Summarizer for long-form content",
+                "Browser Automation via Playwright for autonomous web tasks"
+            ]
+        },
+        {
             id: 1,
             title: "Personal Finance Tracker",
             description: "A React.js application for managing personal finances with interactive charts, expense tracking, and budget planning.",
@@ -19,6 +35,23 @@ const portfolioData = {
         },
         {
             id: 2,
+            title: "Restaurant Menu System",
+            description: "Interactive restaurant menu with category filtering, order management, and real-time cart updates. Streamlines communication between restaurant management and clients.",
+            image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            tags: ["javascript", "fullstack"],
+            tech: ["React.js", "Node.js", "JavaScript", "HTML5", "CSS3"],
+            github: "https://github.com/Naughty000/Restaurant-Menu-System",
+            live: "https://naughty000.github.io/Restaurant-Menu-System",
+            features: [
+                "Interactive menu with categories",
+                "Add to cart functionality",
+                "Real-time order summary",
+                "Table booking system",
+                "Responsive design"
+            ]
+        },
+        {
+            id: 3,
             title: "Health Tracking App",
             description: "Calorie counter and nutrition tracker with meal planning, progress visualization, and health insights.",
             image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
@@ -33,77 +66,17 @@ const portfolioData = {
                 "Progress tracking with charts",
                 "Water intake tracker"
             ]
-        },
-        {
-            id: 3,
-            title: "Cat Breed Information",
-            description: "Interactive web application providing detailed information about different cat breeds with search and filter functionality.",
-            image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-            tags: ["javascript"],
-            tech: ["JavaScript", "REST API", "CSS Grid", "Flexbox"],
-            github: "https://github.com/Naughty000/Cat-Breed-Info",
-            live: "https://cat-breed-info.netlify.app",
-            features: [
-                "Search cat breeds by name",
-                "Filter by characteristics and traits",
-                "Detailed breed information",
-                "High-quality images gallery",
-                "Responsive design for all devices"
-            ]
-        },
-        {
-            id: 4,
-            title: "Phone Number Validator",
-            description: "Tool for validating and formatting international phone numbers with real-time feedback and country code support.",
-            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-            tags: ["javascript"],
-            tech: ["JavaScript", "Regex", "HTML5", "CSS3"],
-            github: "https://github.com/Naughty000/Phone-Number-Validator",
-            live: "https://naughty000.github.io/Phone-Number-Validator",
-            features: [
-                "Real-time phone number validation",
-                "Support for 50+ country codes",
-                "Automatic formatting",
-                "Error detection and suggestions",
-                "Copy to clipboard functionality"
-            ]
-        },
-        {
-            id: 5,
-            title: "Restaurant Menu System",
-            description: "Interactive restaurant menu with category filtering, order management, and real-time cart updates.",
-            image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-            tags: ["javascript", "fullstack"],
-            tech: ["JavaScript", "HTML5", "CSS3", "Local Storage"],
-            github: "https://github.com/Naughty000/Restaurant-Menu-System",
-            live: "https://naughty000.github.io/Restaurant-Menu-System",
-            features: [
-                "Interactive menu with categories",
-                "Add to cart functionality",
-                "Real-time order summary",
-                "Table booking system",
-                "Responsive design"
-            ]
-        },
-        {
-            id: 6,
-            title: "Nutrition Facts Generator",
-            description: "Application to generate and display nutrition facts labels for various food items with detailed breakdown.",
-            image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-            tags: ["javascript"],
-            tech: ["JavaScript", "HTML5", "CSS3", "Chart.js"],
-            github: "https://github.com/Naughty000/Nutrition-Facts-Generator",
-            live: "https://naughty000.github.io/Nutrition-Facts-Generator",
-            features: [
-                "Nutrition facts label generation",
-                "Macro and micronutrient tracking",
-                "Food database integration",
-                "Printable labels",
-                "Daily value calculations"
-            ]
         }
     ],
     skills: {
+        ai: [
+            { name: "LangChain", icon: "fas fa-link", level: 75 },
+            { name: "LangGraph", icon: "fas fa-sitemap", level: 75 },
+            { name: "Groq API", icon: "fas fa-bolt", level: 70 },
+            { name: "ChromaDB", icon: "fas fa-database", level: 65 },
+            { name: "Whisper (Speech-to-Text)", icon: "fas fa-microphone", level: 60 },
+            { name: "Playwright", icon: "fas fa-robot", level: 70 }
+        ],
         frontend: [
             { name: "React.js", icon: "fab fa-react", level: 90 },
             { name: "JavaScript (ES6+)", icon: "fab fa-js", level: 85 },
@@ -113,11 +86,12 @@ const portfolioData = {
             { name: "Responsive Design", icon: "fas fa-mobile-alt", level: 85 }
         ],
         backend: [
+            { name: "Python", icon: "fab fa-python", level: 85 },
             { name: "Node.js", icon: "fab fa-node-js", level: 70 },
+            { name: "Gmail API", icon: "fas fa-envelope", level: 70 },
             { name: "MongoDB", icon: "fas fa-database", level: 65 },
             { name: "SQL", icon: "fas fa-database", level: 75 },
             { name: "REST APIs", icon: "fas fa-server", level: 80 },
-            { name: "Python", icon: "fab fa-python", level: 85 },
             { name: "Git & GitHub", icon: "fab fa-git-alt", level: 90 }
         ],
         tools: [
@@ -206,6 +180,19 @@ function loadProjects(filter = 'all') {
         const projectCard = document.createElement('div');
         projectCard.className = 'project-card';
         projectCard.style.animationDelay = `${index * 0.1}s`;
+
+        const linksOrStatus = project.status
+            ? `<div class="project-links">
+                    <span class="project-link"><i class="fas fa-hourglass-half"></i> ${project.status}</span>
+               </div>`
+            : `<div class="project-links">
+                    <a href="${project.github}" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> Code
+                    </a>
+                    <a href="${project.live}" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+               </div>`;
         
         projectCard.innerHTML = `
             <div class="project-image">
@@ -217,14 +204,7 @@ function loadProjects(filter = 'all') {
                 <div class="project-tags">
                     ${project.tech.map(tech => `<span class="project-tag">${tech}</span>`).join('')}
                 </div>
-                <div class="project-links">
-                    <a href="${project.github}" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="${project.live}" target="_blank" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
-                </div>
+                ${linksOrStatus}
             </div>
         `;
         
@@ -257,6 +237,10 @@ function loadSkills() {
         let title = 'Frontend';
         
         switch(category) {
+            case 'ai':
+                icon = 'fas fa-brain';
+                title = 'AI & Agentic Systems';
+                break;
             case 'backend':
                 icon = 'fas fa-server';
                 title = 'Backend & Database';
@@ -389,11 +373,11 @@ if (contactForm) {
 }
 
 function initCVDownload() {
-    const cvLinks = document.querySelectorAll('a[href*="Arooj-Abbas-CV"]');
+    const cvLinks = document.querySelectorAll('a[href*="Arooj_Abbas_CV"]');
     
     cvLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            console.log('CV downloaded: Arooj-Abbas-CV.pdf', new Date());
+            console.log('CV downloaded: Arooj_Abbas_CV.pdf', new Date());
             
             showDownloadNotification();
             
@@ -485,6 +469,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     console.log('%c🚀 Welcome to Arooj Abbas Portfolio!', 'color: #7C3AED; font-size: 18px; font-weight: bold;');
-    console.log('%c👨‍💻 Frontend Developer | React.js Specialist', 'color: #2563EB; font-size: 14px;');
+    console.log('%c👨‍💻 Backend Developer | Agentic AI (LangChain/LangGraph)', 'color: #2563EB; font-size: 14px;');
     console.log('%c📧 Contact: kambohabbas04@gmail.com', 'color: #10B981; font-size: 14px;');
 });
