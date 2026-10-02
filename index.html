@@ -1,411 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Arooj Abbas | Backend & AI Systems Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+    <meta
+      name="description"
+      content="Arooj Abbas is a final-year Computer Science student building ARIA, a multi-agent AI desktop assistant, with Python, LangGraph and Node.js."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href="#top">Arooj Abbas</a>
+        <nav aria-label="Primary">
+          <a href="#aria">ARIA</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap">
+        <div class="hero-text">
+          <p class="role">Backend &amp; AI Systems Developer</p>
+          <h1>Arooj Abbas</h1>
+          <p class="lead">
+            Final-year Computer Science student at Punjab University, Lahore.
+            I build the backend for ARIA, a multi-agent AI desktop assistant,
+            and I'm looking for an internship or entry-level role in AI/ML
+            engineering or backend development.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="Arooj-Abbas-CV.pdf" download>Download CV</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+          <p class="links">
+            <a href="https://github.com/Naughty000" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://linkedin.com/in/arooj-abbas80110a3a7" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:kambohabbas04@gmail.com">kambohabbas04@gmail.com</a>
+          </p>
         </div>
-        <p>Loading Portfolio...</p>
-    </div>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">
-                <i class="fas fa-code"></i> Arooj<span>Abbas</span>
-            </a>
-            
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+        <figure class="diagram">
+          <svg viewBox="0 0 470 330" role="img" aria-labelledby="dg-title dg-desc">
+            <title id="dg-title">How ARIA routes a request</title>
+            <desc id="dg-desc">
+              A user request goes to a LangGraph tool router, which dispatches
+              it to one of four agents: Gmail Email Agent, WhatsApp Messaging
+              Agent, Document Summarizer, or Browser Automation.
+            </desc>
+            <g class="flow">
+              <path d="M80 165 H110" />
+              <path d="M220 165 C255 165 255 43 290 43" />
+              <path d="M220 165 C255 165 255 123 290 123" />
+              <path d="M220 165 C255 165 255 207 290 207" />
+              <path d="M220 165 C255 165 255 287 290 287" />
+            </g>
+            <g class="node">
+              <rect x="0" y="143" width="80" height="44" rx="6" />
+              <text x="40" y="170" text-anchor="middle">Request</text>
+            </g>
+            <g class="node router">
+              <rect x="110" y="130" width="110" height="70" rx="6" />
+              <text x="165" y="161" text-anchor="middle">LangGraph</text>
+              <text x="165" y="179" text-anchor="middle">tool router</text>
+            </g>
+            <g class="node">
+              <rect x="290" y="20" width="180" height="46" rx="6" />
+              <text x="380" y="48" text-anchor="middle">Gmail Email Agent</text>
+              <rect x="290" y="100" width="180" height="46" rx="6" />
+              <text x="380" y="128" text-anchor="middle">WhatsApp Messaging Agent</text>
+              <rect x="290" y="184" width="180" height="46" rx="6" />
+              <text x="380" y="212" text-anchor="middle">Document Summarizer</text>
+              <rect x="290" y="264" width="180" height="46" rx="6" />
+              <text x="380" y="292" text-anchor="middle">Browser Automation</text>
+            </g>
+          </svg>
+          <figcaption>ARIA routes each request to the agent built for it.</figcaption>
+        </figure>
+      </section>
+
+      <section class="block wrap" id="aria">
+        <h2>Featured project</h2>
+        <div class="content">
+          <h3>ARIA: AI Research &amp; Intelligent Assistant</h3>
+          <p class="when">Final Year Project, four-person team. January 2026 to present.</p>
+          <p>
+            A multi-agent desktop assistant built around a LangGraph-based tool
+            router that sends each user request to a specialised agent. I own
+            Backend 1: the architecture and implementation of four core agents.
+          </p>
+          <dl class="agents">
+            <div>
+              <dt>Gmail Email Agent</dt>
+              <dd>Reads, drafts and triages email through the Gmail API.</dd>
             </div>
+            <div>
+              <dt>WhatsApp Messaging Agent</dt>
+              <dd>Handles incoming messages and generates responses.</dd>
+            </div>
+            <div>
+              <dt>Document Summarizer</dt>
+              <dd>Condenses long documents into structured summaries.</dd>
+            </div>
+            <div>
+              <dt>Browser Automation</dt>
+              <dd>Completes web-based tasks on its own with Playwright.</dd>
+            </div>
+          </dl>
+          <p class="tech">LangChain, LangGraph, Groq API, ChromaDB, Whisper, Playwright, Gmail API, Python, PyInstaller</p>
+        </div>
+      </section>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#projects" class="nav-link"><i class="fas fa-code"></i> Projects</a></li>
-                <li><a href="#cv" class="nav-link"><i class="fas fa-file-download"></i> CV</a></li>
-                <li><a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</a></li>
-                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li>
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </li>
+      <section class="block wrap" id="projects">
+        <h2>Other projects</h2>
+        <div class="content">
+          <article class="project">
+            <h3>Restaurant Management System</h3>
+            <p>
+              A full-stack platform that streamlines communication between
+              restaurant management and clients, with role-based views for
+              orders and updates. In progress since December 2025.
+            </p>
+            <p class="tech">React.js, Node.js, JavaScript, HTML, CSS</p>
+          </article>
+          <article class="project">
+            <h3>Personal Finance Tracker</h3>
+            <p>
+              Interactive finance app with expense tracking and Chart.js
+              visualisations. Data is saved in local storage.
+            </p>
+            <p class="tech">JavaScript, HTML5, CSS3, Chart.js</p>
+            <p class="plinks">
+              <a href="https://github.com/Naughty000/Personal-Finance-Track" target="_blank" rel="noopener">Code</a>
+              <a href="https://naughty000.github.io/Personal-Finance-Track" target="_blank" rel="noopener">Live demo</a>
+            </p>
+          </article>
+          <article class="project">
+            <h3>Health Tracking Application</h3>
+            <p>
+              Calorie counter with meal planning and nutrition tracking, on a
+              responsive CSS Grid and Flexbox layout.
+            </p>
+            <p class="tech">JavaScript, HTML5, CSS3</p>
+            <p class="plinks">
+              <a href="https://github.com/Naughty000/Health-Tracking-App" target="_blank" rel="noopener">Code</a>
+              <a href="https://health-tracking-app.vercel.app" target="_blank" rel="noopener">Live demo</a>
+            </p>
+          </article>
+          <p class="more"><a href="https://github.com/Naughty000" target="_blank" rel="noopener">See all repositories on GitHub</a></p>
+        </div>
+      </section>
+
+      <section class="block wrap" id="experience">
+        <h2>Experience and education</h2>
+        <div class="content">
+          <article class="entry">
+            <h3>Teaching Assistant, Computer Organization &amp; Assembly Language</h3>
+            <p class="when">Punjab University, Lahore. February to July 2025.</p>
+            <ul>
+              <li>Supported 50+ students with low-level computing and Assembly programming.</li>
+              <li>Led weekly labs on MIPS/ARM architecture, memory hierarchy and I/O systems.</li>
+              <li>Graded assignments, gave feedback on assembly code optimisation and wrote practice materials.</li>
             </ul>
+          </article>
+          <article class="entry">
+            <h3>Computer Science Teacher</h3>
+            <p class="when">Inspire Education School System, Muridke. January 2024 to February 2025.</p>
+            <ul>
+              <li>Taught computer science and mathematics to secondary students, with lesson plans and programming exercises.</li>
+            </ul>
+          </article>
+          <article class="entry">
+            <h3>BS Computer Science</h3>
+            <p class="when">University of Punjab, Lahore. 2023 to 2027.</p>
+            <ul>
+              <li>Final year, focused on agentic AI systems and multi-agent architectures.</li>
+            </ul>
+          </article>
+          <article class="entry">
+            <h3>F.Sc. Pre-Engineering</h3>
+            <p class="when">Govt. Girls College, Muridke. 2021 to 2022. 94%.</p>
+          </article>
         </div>
-    </nav>
+      </section>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h4 class="greeting">Hello, I'm</h4>
-                    <h1 class="hero-title">Arooj <span class="highlight">Abbas</span></h1>
-                    <h2 class="hero-subtitle">Backend Developer | Agentic AI (LangChain/LangGraph)</h2>
-                    <p class="hero-description">
-                        BSCS Final-Year Student @ Punjab University | Building ARIA, a Multi-Agent AI Assistant
-                    </p>
-                    
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-eye"></i> View Projects
-                        </a>
-                        <a href="#cv" class="btn btn-secondary">
-                            <i class="fas fa-download"></i> Download CV
-                        </a>
-                    </div>
-
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>6+</h3>
-                            <p>Projects</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>100%</h3>
-                            <p>Success Rate</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Students Mentored</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-image">
-                    <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Arooj Abbas" class="profile-img">
-                        <div class="floating-tech">
-                            <span class="tech-icon react"><i class="fab fa-react"></i></span>
-                            <span class="tech-icon js"><i class="fab fa-js"></i></span>
-                            <span class="tech-icon html"><i class="fab fa-html5"></i></span>
-                            <span class="tech-icon css"><i class="fab fa-css3-alt"></i></span>
-                        </div>
-                    </div>
-                </div>
+      <section class="block wrap" id="skills">
+        <h2>Skills</h2>
+        <div class="content">
+          <dl class="skills">
+            <div>
+              <dt>AI and agentic systems</dt>
+              <dd>LangChain, LangGraph, Groq API, ChromaDB, Whisper, RAG fundamentals</dd>
             </div>
+            <div>
+              <dt>Backend and APIs</dt>
+              <dd>Python, Node.js, Flask, Gmail API, REST APIs, Playwright, SQL, MongoDB</dd>
+            </div>
+            <div>
+              <dt>Frontend</dt>
+              <dd>React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS</dd>
+            </div>
+            <div>
+              <dt>Tools</dt>
+              <dd>Git, GitHub, VS Code, Postman, Jira, Figma, PyInstaller</dd>
+            </div>
+          </dl>
+          <h3 class="sub">Certifications and achievements</h3>
+          <ul class="plain">
+            <li>Web Design &amp; Development, PNY Trainings (January 2026)</li>
+            <li>Frontend Development, freeCodeCamp</li>
+            <li>Python Programming, Punjab University SDC (2024)</li>
+            <li>Python Programming Internship, CosmiCode (2025)</li>
+            <li>Graphic Designing, LWMG Academy (March 2025)</li>
+            <li>PEEF Scholarship (2023) and Quaid-e-Azam Scholarship (2022), Lahore Board</li>
+            <li>Participant: Electron'24 (UET Lahore), CosmiCode Programming Competition (2024), COSMOCON'25 (Punjab University)</li>
+          </ul>
         </div>
+      </section>
 
-        <div class="scroll-indicator">
-            <a href="#about"><i class="fas fa-chevron-down"></i></a>
+      <section class="block wrap" id="contact">
+        <h2>Contact</h2>
+        <div class="content">
+          <p class="lead-sm">
+            I'm open to internships and entry-level roles in AI/ML engineering
+            and backend development. The quickest way to reach me is email.
+          </p>
+          <ul class="contact-list">
+            <li><span>Email</span><a href="mailto:kambohabbas04@gmail.com">kambohabbas04@gmail.com</a></li>
+            <li><span>Phone</span><a href="tel:+923274266152">+92 327 4266152</a></li>
+            <li><span>LinkedIn</span><a href="https://linkedin.com/in/arooj-abbas-80110a3a7" target="_blank" rel="noopener">arooj-abbas-80110a3a7</a></li>
+            <li><span>GitHub</span><a href="https://github.com/Naughty000" target="_blank" rel="noopener">Naughty000</a></li>
+            <li><span>Location</span>Punjab, Pakistan</li>
+          </ul>
+          <a class="btn primary" href="Arooj-Abbas-CV.pdf" download>Download CV</a>
         </div>
-    </section>
+      </section>
+    </main>
 
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About <span>Me</span></h2>
-                <p class="section-subtitle">Get to know me better</p>
-            </div>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Transforming Ideas into <span>Digital Reality</span></h3>
-                    <p>
-                        I'm a final-year BSCS student at Punjab University building ARIA, a multi-agent 
-                        agentic AI desktop assistant powered by a LangGraph-based tool router. I own the 
-                        backend architecture for four agent modules — Gmail, WhatsApp, Document Summarizer, 
-                        and Browser Automation.
-                    </p>
-                    <p>
-                        I combine hands-on experience in agentic AI frameworks (LangChain, LangGraph, Groq) 
-                        with a solid foundation in full-stack development (React.js, Node.js, Python, MongoDB), 
-                        plus real teaching experience as a Teaching Assistant for Computer Organization.
-                    </p>
-
-                    <div class="about-details">
-                        <div class="detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Lahore, Pakistan</p>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>
-                                <h4>Education</h4>
-                                <p>BSCS @ Punjab University</p>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-briefcase"></i>
-                            <div>
-                                <h4>Experience</h4>
-                                <p>Backend & AI Developer, TA</p>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>kambohabbas04@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-progress">
-                    <h3>My Skills Progress</h3>
-                    <div class="progress-bars">
-                        <div class="progress-item">
-                            <div class="progress-header">
-                                <span>LangChain / LangGraph</span>
-                                <span class="progress-percent">75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="75"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-header">
-                                <span>Python (Backend & AI)</span>
-                                <span class="progress-percent">80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="80"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-header">
-                                <span>React.js</span>
-                                <span class="progress-percent">90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-header">
-                                <span>JavaScript / Node.js</span>
-                                <span class="progress-percent">85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="85"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My <span>Projects</span></h2>
-                <p class="section-subtitle">Check out my latest work</p>
-            </div>
-
-            <div class="project-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ai">AI</button>
-                <button class="filter-btn" data-filter="react">React</button>
-                <button class="filter-btn" data-filter="javascript">JavaScript</button>
-                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-            </div>
-
-            <div class="projects-grid" id="projectsGrid">
-            </div>
-        </div>
-    </section>
-
-    <section class="cv-download" id="cv">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Download My <span>CV</span></h2>
-                <p class="section-subtitle">Get my complete professional profile</p>
-            </div>
-            
-            <div class="cv-card">
-                <div class="cv-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <h3>Arooj Abbas - Professional CV</h3>
-                <p class="cv-description">
-                    Backend & AI Systems Developer | Agentic AI (LangChain/LangGraph) | BSCS Student @ Punjab University
-                </p>
-                
-                <div class="cv-details">
-                    <div class="cv-detail">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Updated: July 2026</span>
-                    </div>
-                    <div class="cv-detail">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Format: PDF</span>
-                    </div>
-                    <div class="cv-detail">
-                        <i class="fas fa-weight"></i>
-                        <span>Size: ~60KB</span>
-                    </div>
-                    <div class="cv-detail">
-                        <i class="fas fa-code"></i>
-                        <span>ARIA (Agentic AI) Featured</span>
-                    </div>
-                </div>
-                
-                <div class="cv-buttons">
-                    <a href="Arooj_Abbas_CV.pdf" download class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download CV (PDF)
-                    </a>
-                    <a href="Arooj_Abbas_CV.pdf" target="_blank" class="btn btn-secondary">
-                        <i class="fas fa-eye"></i> Preview CV
-                    </a>
-                </div>
-                
-                <p class="cv-note">
-                    <i class="fas fa-info-circle"></i>
-                    Includes contact info, ARIA project, skills, education, and experience
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="skills" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My <span>Skills</span></h2>
-                <p class="section-subtitle">Technologies I work with</p>
-            </div>
-
-            <div class="skills-container" id="skillsContainer">
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In <span>Touch</span></h2>
-                <p class="section-subtitle">Let's work together!</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Email</h3>
-                            <p>kambohabbas04@gmail.com</p>
-                            <a href="mailto:kambohabbas04@gmail.com">Send Message</a>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Phone</h3>
-                            <p>+92 327 4266152</p>
-                            <a href="tel:+923274266152">Call Now</a>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Location</h3>
-                            <p>Lahore, Pakistan</p>
-                            <a href="https://maps.google.com/?q=Lahore" target="_blank">View on Map</a>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Send me a message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-code"></i> Arooj<span>Abbas</span>
-                </div>
-                <p class="footer-text">
-                    BSCS student building agentic AI systems and full-stack web experiences
-                </p>
-                
-                <div class="social-links">
-                    <a href="https://github.com/Naughty000" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/arooj-abbas-80110a3a7" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:kambohabbas04@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-
-                <div class="quick-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#cv">CV</a>
-                    <a href="#contact">Contact</a>
-                </div>
-
-                <p class="copyright">
-                    &copy; 2024 Arooj Abbas. All rights reserved.
-                </p>
-            </div>
-        </div>
+    <footer class="wrap foot">
+      <p>&copy; <span id="year">2026</span> Arooj Abbas</p>
+      <a href="#top">Back to top</a>
     </footer>
 
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <div class="cv-float-button">
-        <a href="#cv" class="float-cv-btn">
-            <i class="fas fa-file-download"></i>
-            <span>Get CV</span>
-        </a>
-    </div>
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
